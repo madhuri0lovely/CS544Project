@@ -7,4 +7,5 @@ import mum.cs544.project.entity.Session;
 public interface ISessionService {
 	public boolean createSession(Session session);
 	public List<Session> getAllSessions();
+	public Session getSessionById(Long sessionId);
 }
