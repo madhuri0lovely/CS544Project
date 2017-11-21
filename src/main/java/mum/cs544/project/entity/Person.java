@@ -66,7 +66,6 @@ public class Person {
 		this.lastName = lastName;
 	}
 	
-<<<<<<< HEAD
 	public String getEmail() {
 		return email;
 	}
@@ -79,11 +78,6 @@ public class Person {
 	public void setAppointments(List<Appointment> appointments) {
 		this.appointments = appointments;
 	}
-=======
-	public List<Appointment> getAppointments() {
-		return appointments;
-	}
->>>>>>> fdfcae4a14f8a48cfc7c0fed2a413f1b70ae29d0
 	public String getFullName() {
 		fullName = firstName + " " + lastName;
 		return fullName;
@@ -104,9 +98,8 @@ public class Person {
 		roles.add(role);
 	}
 	
-	
 	public List<Role> getRoles() {
-		return roles;
+		return (List<Role>)Collections.unmodifiableList(roles);
 	}
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
