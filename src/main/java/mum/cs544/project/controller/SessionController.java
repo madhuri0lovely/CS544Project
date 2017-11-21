@@ -91,7 +91,7 @@ public class SessionController {
 
 			return "session_edit";
 		}
-		
+
 		sessionService.editSession(session,id);
 		return "redirect:/sessions";
 	}

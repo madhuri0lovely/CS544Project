@@ -28,48 +28,144 @@
 	<%@ include file="header.jsp"%>
 	
 	<section id="contact-page">
-        <div class="container">
-            <div class="center">        
-                <h2>Drop Your Message</h2>
-                <p class="lead">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div> 
-            <div class="row contact-wrap"> 
-                <div class="status alert alert-success" style="display: none"></div>
-                <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
-                    <div class="col-sm-5 col-sm-offset-1">
-                        <div class="form-group">
-                            <label>Name *</label>
-                            <input type="text" name="name" class="form-control" required="required">
-                        </div>
-                        <div class="form-group">
-                            <label>Email *</label>
-                            <input type="email" name="email" class="form-control" required="required">
-                        </div>
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input type="number" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>Company Name</label>
-                            <input type="text" class="form-control">
-                        </div>                        
-                    </div>
-                    <div class="col-sm-5">
-                        <div class="form-group">
-                            <label>Subject *</label>
-                            <input type="text" name="subject" class="form-control" required="required">
-                        </div>
-                        <div class="form-group">
-                            <label>Message *</label>
-                            <textarea name="message" id="message" required="required" class="form-control" rows="8"></textarea>
-                        </div>                        
-                        <div class="form-group">
-                            <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Submit Message</button>
-                        </div>
-                    </div>
-                </form> 
-            </div><!--/.row-->
-        </div><!--/.container-->
+<div class="container">
+	<div class="row">
+		
+        
+        <div class="col-md-12">
+        <h4>Bootstrap Snipp for Datatable</h4>
+        <div class="table-responsive">
+
+                
+              <table id="mytable" class="table table-bordred table-striped">
+                   
+                   <thead>
+                   <th>First Name</th>
+                    <th>Last Name</th>
+                     <th>Address</th>
+                     <th>Email</th>
+                     <th>Contact</th>
+                      <th>Edit</th>
+                      
+                       <th>Delete</th>
+                   </thead>
+    <tbody>
+    
+    <tr>
+    <td>Mohsin</td>
+    <td>Irshad</td>
+    <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
+    <td>isometric.mohsin@gmail.com</td>
+    <td>+923335586757</td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+    </tr>
+    
+ <tr>
+    <td>Mohsin</td>
+    <td>Irshad</td>
+    <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
+    <td>isometric.mohsin@gmail.com</td>
+    <td>+923335586757</td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+    </tr>
+    
+    
+ <tr>
+    <td>Mohsin</td>
+    <td>Irshad</td>
+    <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
+    <td>isometric.mohsin@gmail.com</td>
+    <td>+923335586757</td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+    </tr>
+    
+    
+    
+ <tr>
+    <td>Mohsin</td>
+    <td>Irshad</td>
+    <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
+    <td>isometric.mohsin@gmail.com</td>
+    <td>+923335586757</td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+    </tr>
+    
+    
+ <tr>
+    <td>Mohsin</td>
+    <td>Irshad</td>
+    <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
+    <td>isometric.mohsin@gmail.com</td>
+    <td>+923335586757</td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+    </tr>
+    </tbody>      
+</table>                
+            </div>
+            
+        </div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
+      </div>
+          <div class="modal-body">
+          <div class="form-group">
+        <input class="form-control " type="text" placeholder="Mohsin">
+        </div>
+        <div class="form-group">
+        
+        <input class="form-control " type="text" placeholder="Irshad">
+        </div>
+        <div class="form-group">
+        <textarea rows="2" class="form-control" placeholder="CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan"></textarea>
+    
+        
+        </div>
+      </div>
+          <div class="modal-footer ">
+        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+      </div>
+        </div>
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
+    
+    
+    
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+      </div>
+          <div class="modal-body">
+       
+       <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
+       
+      </div>
+        <div class="modal-footer ">
+        <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+      </div>
+        </div>
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
     </section><!--/#contact-page-->
 
     <section id="bottom">

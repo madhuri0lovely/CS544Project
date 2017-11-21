@@ -66,6 +66,18 @@ public class Person {
 		this.lastName = lastName;
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public List<Appointment> getAppointments() {
+		return appointments;
+	}
+	public void setAppointments(List<Appointment> appointments) {
+		this.appointments = appointments;
+	}
 	public String getFullName() {
 		fullName = firstName + " " + lastName;
 		return fullName;
@@ -86,9 +98,8 @@ public class Person {
 		roles.add(role);
 	}
 	
-	
 	public List<Role> getRoles() {
-		return roles;
+		return (List<Role>)Collections.unmodifiableList(roles);
 	}
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
