@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -31,9 +32,16 @@ public class Appointment {
 	@JoinColumn(name="person_id")
 	private Person person;
 	
-	@Future
+	@NotNull
+	@Valid
+	@ManyToOne
+	@JoinColumn(name="creator_id")
+	private Person creator;
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdDate;
+	
+	private int reminder = 0;
 	
 	public Appointment() { }
 	public Appointment(Session session, Person person, Date createdDate) {
@@ -43,6 +51,24 @@ public class Appointment {
 		this.createdDate = createdDate;
 	}
 	
+	@PrePersist
+	void preInsert() {
+	   if (this.createdDate == null)
+	       this.createdDate = new Date();
+	}
+	
+	public Person getCreator() {
+		return creator;
+	}
+	public void setCreator(Person creator) {
+		this.creator = creator;
+	}
+	public int getReminder() {
+		return reminder;
+	}
+	public void setReminder(int reminder) {
+		this.reminder = reminder;
+	}
 	public Session getSession() {
 		return session;
 	}

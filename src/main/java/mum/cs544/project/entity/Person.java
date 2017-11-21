@@ -66,6 +66,24 @@ public class Person {
 		this.lastName = lastName;
 	}
 	
+<<<<<<< HEAD
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public List<Appointment> getAppointments() {
+		return appointments;
+	}
+	public void setAppointments(List<Appointment> appointments) {
+		this.appointments = appointments;
+	}
+=======
+	public List<Appointment> getAppointments() {
+		return appointments;
+	}
+>>>>>>> fdfcae4a14f8a48cfc7c0fed2a413f1b70ae29d0
 	public String getFullName() {
 		fullName = firstName + " " + lastName;
 		return fullName;
