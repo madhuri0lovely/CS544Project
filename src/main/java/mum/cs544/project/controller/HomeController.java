@@ -2,6 +2,7 @@ package mum.cs544.project.controller;
 
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -12,14 +13,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import mum.cs544.project.model.User;
+import mum.cs544.project.service.JMSService;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	private JMSService jmsSender;
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String welcome(@ModelAttribute("user") User user) {
 		BCryptPasswordEncoder bCrypt = new BCryptPasswordEncoder();
 		System.out.println("===["+bCrypt.encode("admin")+"]");
+		
+		jmsSender.sendJMSMessage("ETHER|0|1");
+		
 		return "home";
 	}
 	
