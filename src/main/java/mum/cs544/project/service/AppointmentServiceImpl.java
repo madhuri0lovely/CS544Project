@@ -2,9 +2,8 @@ package mum.cs544.project.service;
 
 import java.util.List;
 
-import javax.management.Query;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import mum.cs544.project.entity.Appointment;
 import mum.cs544.project.entity.Person;
@@ -12,6 +11,7 @@ import mum.cs544.project.entity.Session;
 import mum.cs544.project.repository.AppointmentRepository;
 import mum.cs544.project.repository.SessionRepository;
 
+@Service
 public class AppointmentServiceImpl implements IAppointmentService {
 
 	@Autowired
