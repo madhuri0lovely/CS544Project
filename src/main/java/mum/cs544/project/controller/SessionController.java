@@ -73,7 +73,7 @@ public class SessionController {
 		if (bindingresult.hasErrors()) 
 			return "session_edit";
 		
-		System.err.println(session.getConselor().getFirstName());
+		System.err.println(session.getCounselor().getFirstName());
 		return "redirect:/sessions";
 	}
 

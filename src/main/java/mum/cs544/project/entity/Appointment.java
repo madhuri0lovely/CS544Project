@@ -11,7 +11,6 @@ import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 
 @Entity

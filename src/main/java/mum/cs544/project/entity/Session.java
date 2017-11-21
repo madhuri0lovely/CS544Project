@@ -95,7 +95,11 @@ public class Session {
 		this.location = location;
 	}
 	public Person getCounselor() {
+<<<<<<< HEAD
+		return counselor; 
+=======
 		return counselor;
+>>>>>>> 92aeb3a3ef5239627fbd734a49da3bfe2f1f0ca0
 	}
 	public void setCounselor(Person counselor) {
 		this.counselor = counselor;

@@ -67,12 +67,23 @@ public class Person {
 	}
 	
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 92aeb3a3ef5239627fbd734a49da3bfe2f1f0ca0
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
+<<<<<<< HEAD
+	public List<Appointment> getAppointments() {
+		return appointments;
+	}
+	public void setAppointments(List<Appointment> appointments) {
+		this.appointments = appointments;
+	}
+=======
 	public List<Appointment> getAppointments() {
 		return appointments;
 	}
@@ -84,6 +95,7 @@ public class Person {
 		return appointments;
 	}
 >>>>>>> fdfcae4a14f8a48cfc7c0fed2a413f1b70ae29d0
+>>>>>>> 92aeb3a3ef5239627fbd734a49da3bfe2f1f0ca0
 	public String getFullName() {
 		fullName = firstName + " " + lastName;
 		return fullName;
@@ -104,9 +116,8 @@ public class Person {
 		roles.add(role);
 	}
 	
-	
 	public List<Role> getRoles() {
-		return roles;
+		return (List<Role>)Collections.unmodifiableList(roles);
 	}
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
