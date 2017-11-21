@@ -86,8 +86,9 @@ public class Person {
 		roles.add(role);
 	}
 	
+	
 	public List<Role> getRoles() {
-		return (List<Role>)Collections.unmodifiableList(roles);
+		return roles;
 	}
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
