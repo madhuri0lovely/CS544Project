@@ -48,20 +48,20 @@ public class Session {
 	@NotNull
 	@OneToOne
 	@JoinColumn(name="counselor_id")
-	private Person conselor;
+	private Person counselor;
 	
 	@OneToMany(mappedBy="session", cascade=CascadeType.ALL)
 	private List<Appointment> attendees;
 	
 	public Session() { }
-	public Session(Date date, Date time, int duration, int capacity, Location location, Person conselor) {
+	public Session(Date date, Date time, int duration, int capacity, Location location, Person counselor) {
 		super();
 		this.date = date;
 		this.time = time;
 		this.duration = duration;
 		this.capacity = capacity;
 		this.location = location;
-		this.conselor = conselor;
+		this.counselor = counselor;
 	}
 	
 	public Date getDate() {
@@ -94,13 +94,17 @@ public class Session {
 	public void setLocation(Location location) {
 		this.location = location;
 	}
-	public Person getConselor() {
-		return conselor;
+	public Person getCounselor() {
+		return counselor;
 	}
-	public void setConselor(Person conselor) {
-		this.conselor = conselor;
+	public void setCounselor(Person counselor) {
+		this.counselor = counselor;
 	}
 	public Long getId() {
 		return id;
+	}
+	
+	public String getInfo() {
+		return this.date.toString() + " " + this.time.toString() + " at " + this.location.toString();
 	}
 }

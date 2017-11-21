@@ -9,4 +9,7 @@ public interface IAppointmentService {
 	public boolean createAppointment(Appointment appt);
 	public boolean deleteAppointment(Appointment appt);
 	public List<Appointment> getAppointmentsOfCustomer(Person person);
+	public List<Appointment> getAppointmentsByReminder(int reminder);
+	public void save(Appointment appointment);
+	public Appointment findOne(Long id);
 }

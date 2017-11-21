@@ -16,6 +16,7 @@ public class AppointmentServiceImpl implements IAppointmentService {
 
 	@Autowired
 	private AppointmentRepository appointmentRepository;
+	
 	@Autowired
 	private SessionRepository sessionRepository;
 
@@ -42,8 +43,22 @@ public class AppointmentServiceImpl implements IAppointmentService {
 	
 	@Override
 	public List<Appointment> getAppointmentsOfCustomer(Person person) {
-		
 		return null;
+	}
+
+	@Override
+	public List<Appointment> getAppointmentsByReminder(int reminder) {
+		return appointmentRepository.findByReminder(reminder);
+	}
+
+	@Override
+	public void save(Appointment appointment) {
+		appointmentRepository.save(appointment);
+	}
+
+	@Override
+	public Appointment findOne(Long id) {
+		return appointmentRepository.findOne(id);
 	}
 
 }
