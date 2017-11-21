@@ -66,6 +66,9 @@ public class Person {
 		this.lastName = lastName;
 	}
 	
+	public List<Appointment> getAppointments() {
+		return appointments;
+	}
 	public String getFullName() {
 		fullName = firstName + " " + lastName;
 		return fullName;
