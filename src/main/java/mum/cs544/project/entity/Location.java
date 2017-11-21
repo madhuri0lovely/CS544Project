@@ -14,21 +14,38 @@ public class Location {
 	
 	@NotNull
 	@Size(min=1, max=50)
-	private String name;
+	private String building;
+	
+	@NotNull
+	@Size(min=1, max=50)
+	private String room;
 	
 	public Location() { }
-	public Location(String name) {
+	public Location(String building, String room) {
 		super();
-		this.name = name;
+		this.building = building;
+		this.room = room;
 	}
-	
-	public String getName() {
-		return name;
+
+	public String getBuilding() {
+		return building;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setBuilding(String building) {
+		this.building = building;
+	}
+	public String getRoom() {
+		return room;
+	}
+	public void setRoom(String room) {
+		this.room = room;
 	}
 	public Long getId() {
 		return id;
 	}
+	
+	@Override
+	public String toString() {
+		return "Building=" + building + ", Room=" + room;
+	}
+	
 }
