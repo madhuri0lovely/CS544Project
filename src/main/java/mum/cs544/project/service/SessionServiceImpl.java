@@ -40,7 +40,7 @@ public class SessionServiceImpl implements ISessionService {
 	public void editSession(Session session, Long id) {
 		Session sessionTobeUpdated = sessionRepository.findOne(id);
 		sessionTobeUpdated.setCapacity(session.getCapacity());
-		sessionTobeUpdated.setConselor(session.getConselor());
+		sessionTobeUpdated.setCounselor(session.getCounselor());
 		sessionTobeUpdated.setDate(session.getDate());
 		sessionTobeUpdated.setDuration(session.getDuration());
 		sessionTobeUpdated.setLocation(session.getLocation());

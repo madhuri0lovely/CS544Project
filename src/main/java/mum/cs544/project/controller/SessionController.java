@@ -64,12 +64,12 @@ public class SessionController {
 	@RequestMapping(value = "/session_edit/{id}", method = RequestMethod.GET)
 	public String ediPlayer(@ModelAttribute("sessionForUpdated") Session session, Model model, @PathVariable("id") Long id) {
 		Session sessionForUpdated = sessionService.getSessionById(id);
-		Map<Long, String> conselors = getListOfConselor();
+		Map<Long, String> counselors = getListOfConselor();
 		Map<Long, String> locations = getListOfLocation();
 		Map<Date, String> times = getTimes();
 
 		model.addAttribute("locations", locations);
-		model.addAttribute("conselors", conselors);
+		model.addAttribute("counselors", counselors);
 		model.addAttribute("times", times);
 		model.addAttribute("sessionForUpdated", sessionForUpdated);
 

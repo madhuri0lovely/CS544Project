@@ -40,14 +40,14 @@
 			</p>
 
 			<p>
-				<label for="conselor">conselor</label>
-				<form:select path="conselor" id="conselor">
-					<form:option value="${sessionForUpdated.conselor.id}"
-						label="${sessionForUpdated.conselor.firstName}" />
-					<form:options path="conselor" items="${conselors}" />
+				<label for="counselor">counselor</label>
+				<form:select path="counselor" id="counselor">
+					<form:option value="${sessionForUpdated.counselor.id}"
+						label="${sessionForUpdated.counselor.firstName}" />
+					<form:options path="counselor" items="${counselors}" />
 				</form:select>
 				
-				<form:errors path="conselor" cssStyle="Color:RED"></form:errors>
+				<form:errors path="counselor" cssStyle="Color:RED"></form:errors>
 			</p>
 
 			<p>
