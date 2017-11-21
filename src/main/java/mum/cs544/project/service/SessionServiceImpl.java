@@ -26,7 +26,12 @@ public class SessionServiceImpl implements ISessionService {
 
 	@Override
 	public List<Session> getAllSessions() {
-		return (List<Session>)sessionRepository.findAll();
+		List<Session> sessions = (List<Session>)sessionRepository.findAll();
+		return sessions;
+	}
+	
+	public Session getSessionById(Long sessionId) {
+		return sessionRepository.findOne(sessionId);
 	}
 
 }
