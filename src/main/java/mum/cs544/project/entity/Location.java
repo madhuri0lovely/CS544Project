@@ -27,6 +27,10 @@ public class Location {
 		this.room = room;
 	}
 
+	public String getName() {
+		return building + " " + room;
+	}
+	
 	public String getBuilding() {
 		return building;
 	}
