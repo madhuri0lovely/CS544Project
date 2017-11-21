@@ -40,6 +40,9 @@
 			</tr>
 			</c:forEach>
 		</table>
+		<div style="float: right">
+					<a class="session_add" href="add">Add Session</a>
+		</div>
 	</form>
 </body>
 </html>
