@@ -22,22 +22,15 @@ public class AppointmentServiceImpl implements IAppointmentService {
 
 	@Override
 	public boolean createAppointment(Appointment appt) {
-		Session session = appt.getSession();
-		session.setCapacity(session.getCapacity() - 1);
-
-		if (appointmentRepository.save(appt) != null || sessionRepository.save(session) != null) {
+		if (appointmentRepository.save(appt) != null){
 			return true;
 		}
 		return false;
 	}
 
 	@Override
-	public boolean deleteAppointment(Appointment appt) {
-		Session session = appt.getSession();
-		session.setCapacity(session.getCapacity() + 1);
-
-		appointmentRepository.delete(appt);
-		sessionRepository.delete(session);
+	public boolean deleteAppointment(long id) {
+		appointmentRepository.delete(id);
 		return false;
 	}
 	

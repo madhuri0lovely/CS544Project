@@ -43,10 +43,11 @@ public class Appointment {
 	private int reminder = 0;
 	
 	public Appointment() { }
-	public Appointment(Session session, Person person, Date createdDate) {
+	public Appointment(Session session, Person person, Person creator, Date createdDate) {
 		super();
 		this.session = session;
 		this.person = person;
+		this.creator = creator;
 		this.createdDate = createdDate;
 	}
 	
