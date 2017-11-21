@@ -30,8 +30,8 @@
 				<td>${session.date}</td>
 				<td>${session.time}</td>
 				<td>${session.duration}</td>
-				<td>${session.location.name}</td>
-				<td>${session.conselor.firstName}</td>
+				<td>${session.location.building}</td>
+				<td>${session.counselor.firstName}</td>
 				<td>${session.capacity}</td>
 				<td>
 				<a href="session_edit/${session.id}">Edit</a>

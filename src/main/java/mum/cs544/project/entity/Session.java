@@ -60,9 +60,6 @@ public class Session {
 	private static DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT, Locale.US);
 	private static DateFormat tf = DateFormat.getTimeInstance(DateFormat.SHORT, Locale.US);
 
-	public Session() {
-	}
-
 //	public Session(String date, String time, int duration, int capacity, Location location, Person conselor) {
 //		super();
 //		setDate(date);
