@@ -8,15 +8,16 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">Gp.</a>
+                    <a class="navbar-brand" href="index.html">TM</a>
                 </div>
 				
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.jsp">Home</a></li>
-                        <li><a href="about-us.jsp">About Us</a></li>
-                        <li><a href="services.jsp">Book</a></li> 
-                        <li><a href="appointment.jsp">Appointment</a></li>                        
+                        <li class="active"><a href="/index">Home</a></li>
+                        <li><a href="/about-us">About Us</a></li>
+                        <li><a href="/manage">Manage</a></li> 
+                        <li><a href="/appointment">Appointment</a></li>
+                        <li><a href="/login">Login</a></li>                        
                     </ul>
                 </div>
             </div><!--/.container-->
