@@ -54,4 +54,9 @@ public class AppointmentServiceImpl implements IAppointmentService {
 		return appointmentRepository.findOne(id);
 	}
 
+	@Override
+	public List<Appointment> getAllAppointments() {
+		return (List<Appointment>) appointmentRepository.findAll();
+	}
+
 }

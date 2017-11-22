@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -65,6 +66,49 @@ public class AppointmentController {
 			appointmentService.deleteAppointment(appointmentid);
 		} catch (Exception ex) {
 			return "redirect:/appointment/list";
+		}
+		return view;
+	}
+	
+	@RequestMapping(value="signupAppointment", method=RequestMethod.GET)
+	public String signupAppointment(Model model) {
+//	model.addAttribute("sessions", sessionService.getSessionById(sessionId));
+	return "appointmentAdmin";
+	}
+	
+	@RequestMapping(value = "/appointmentDelete", method = RequestMethod.GET)
+	public String deleteAppointments(Model model) {
+		model.addAttribute("appointments", appointmentService.getAllAppointments());// flash
+		// attribute
+		return "appointmentDelete";
+	}
+	
+	@RequestMapping(value = "/appointmentManage", method = RequestMethod.GET)
+	public String ManageAppointments(Model model) {
+		model.addAttribute("sessions", sessionService.getAllSessions());
+		model.addAttribute("persons", personService.getAllPerson());
+		return "appointmentManage";
+	}
+	
+	@RequestMapping(value = "apptRegisterCustomer/{sessionid}", params="person", method = RequestMethod.POST)
+	public String AppointmentAddCustomer(@RequestParam String person,@PathVariable long sessionid, Model model) {
+		Session session = sessionService.getSessionById(sessionid);
+		Person person1 = personService.findByUsername(person);
+		Person creator = personService.findByUsername(SecurityUtil.getLoggedInUserName());
+		Appointment appt = new Appointment(session, person1, creator, new Date());
+		appointmentService.createAppointment(appt);
+		
+		model.addAttribute("sessions", sessionService.getAllSessions());
+		return "redirect:/appointmentManage";
+	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String adminDeleteAppointment(@RequestParam(value = "apptID") long appointmentid, Model model) {
+		String view = "redirect:/appointmentDelete";
+		try {
+			appointmentService.deleteAppointment(appointmentid);
+		} catch (Exception ex) {
+			return "redirect:/appointmentDelete";
 		}
 		return view;
 	}

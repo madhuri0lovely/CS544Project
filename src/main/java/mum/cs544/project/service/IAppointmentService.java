@@ -12,4 +12,5 @@ public interface IAppointmentService {
 	public List<Appointment> getAppointmentsByReminder(int reminder);
 	public void save(Appointment appointment);
 	public Appointment findOne(Long id);
+	public List<Appointment> getAllAppointments();
 }
