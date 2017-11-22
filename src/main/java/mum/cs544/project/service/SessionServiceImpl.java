@@ -1,5 +1,6 @@
 package mum.cs544.project.service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -32,6 +33,12 @@ public class SessionServiceImpl implements ISessionService {
 		return sessions;	
 	}
 	
+	@Override
+	public List<Session> getAllFutureSessions() {
+		List<Session> sessions = (List<Session>)sessionRepository.findByDateGreaterThan(new Date());
+		return sessions;
+	}
+	
 	public Session getSessionById(Long sessionId) {
 		return sessionRepository.findOne(sessionId);
 	}
@@ -48,6 +55,18 @@ public class SessionServiceImpl implements ISessionService {
 		
 		sessionRepository.save(sessionTobeUpdated);
 	}
+
+	@Override
+	public void addSession(Session session) {
+		sessionRepository.save(session);
+	}
+
+	@Override
+	public void deleteSession(Long id) {
+		sessionRepository.delete(id);
+	}
+
+
 
 
 }
