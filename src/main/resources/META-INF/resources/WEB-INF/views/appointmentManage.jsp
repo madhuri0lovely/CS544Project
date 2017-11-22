@@ -72,7 +72,6 @@
 				</select>
 				</td>
 				<td>
-				<a href="apptRegisterCustomer/${session.id}">Register Customer</a>
 				<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
 				<input type="submit" value="Make appointment" class="btn btn-primary btn-lg">
 				</td>
