@@ -25,4 +25,12 @@ public class PersonServiceImpl implements IPersonService {
 		return conselors;
 	}
 
+	@Override
+	public List<Person> getAllPerson() {
+		List<Person> person = (List<Person>) personRepository.findAll(); 
+		return person;
+	}
+
+
+	
 }
