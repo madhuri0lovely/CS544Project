@@ -32,18 +32,15 @@
         	 <div class="row"> 
         	 <div class="col-sm-6">
 				<form:form commandName="user" action="login" method="POST">
-				<h2>Log in</h2>
 				<c:if test="${param.error != null}">
 					<p>Invalid username and password.</p>
 				</c:if>
 		        
 		        	<div class="form-group">
-		        		<label>User Name</label>
 			        	<form:input path="username" placeholder="Username" autofocus="true" class="form-control"/>
 			        	<form:errors path="username"/>
 		        	</div>
 		        	<div class="form-group">
-		        		<label>Password</label>
 			        	<form:password path="password" placeholder="Password" class="form-control"/>
 			        	<form:errors path="password"/>
 		        	</div>

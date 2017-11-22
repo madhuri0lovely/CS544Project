@@ -18,16 +18,8 @@ import mum.cs544.project.service.JMSService;
 @Controller
 public class HomeController {
 	
-	@Autowired
-	private JMSService jmsSender;
-	
 	@RequestMapping(value="/", method=RequestMethod.GET)
-	public String welcome(@ModelAttribute("user") User user) {
-		BCryptPasswordEncoder bCrypt = new BCryptPasswordEncoder();
-		System.out.println("===["+bCrypt.encode("admin")+"]");
-		
-		jmsSender.sendJMSMessage("ETHER|0|1");
-		
+	public String welcome(@ModelAttribute("user") User user) {		
 		return "home";
 	}
 	
