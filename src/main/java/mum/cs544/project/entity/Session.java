@@ -155,4 +155,9 @@ public class Session {
 	public String getInfo() {
 		return this.date.toString() + " " + this.time.toString() + " at " + this.location.toString();
 	}
+	public List<Appointment> getAttendees() {
+		return attendees;
+	}
+	
+	
 }

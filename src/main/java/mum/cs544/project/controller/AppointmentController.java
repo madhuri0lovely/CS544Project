@@ -1,6 +1,8 @@
 package mum.cs544.project.controller;
 
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,15 +33,20 @@ public class AppointmentController {
 
 	@RequestMapping(value = "/appointment/create", method = RequestMethod.GET)
 	public String getAllSessions(Model model) {
-		model.addAttribute("sessions", sessionService.getAllSessions());
+		List<Session> allAvailableSessions = sessionService.getAllFutureSessions();
+		long personid = personService.findByUsername(SecurityUtil.getLoggedInUserName()).getId();
+		allAvailableSessions = allAvailableSessions.stream()
+				.filter(session -> (session.getCapacity() > session.getAttendees().size()))
+				.filter(session -> (session.getAttendees().stream().filter(appt -> appt.getPerson().getId() == personid).count() == 0))
+				.collect(Collectors.toList());
+		model.addAttribute("sessions", allAvailableSessions);
 		return "createappointment";
 	}
 
 	@RequestMapping(value = "/appointment/list", method = RequestMethod.GET)
 	public String getAllAppointments(Model model) {
 		model.addAttribute("appointments",
-				personService.findByUsername(SecurityUtil.getLoggedInUserName()).getAppointments());// flash
-		// attribute
+				personService.findByUsername(SecurityUtil.getLoggedInUserName()).getAppointments());
 		return "listappointment";
 	}
 
