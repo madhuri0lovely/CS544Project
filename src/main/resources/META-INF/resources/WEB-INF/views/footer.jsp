@@ -2,7 +2,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; 2015 <a target="_blank" href="http://bootstraptaste.com/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">bootstraptaste</a>. All Rights Reserved.
+                    &copy; 2017 <a target="_blank" href="http://bootstraptaste.com/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">Ether</a>. All Rights Reserved.
                 </div>
                 <!-- 
                     All links in the footer should remain intact. 

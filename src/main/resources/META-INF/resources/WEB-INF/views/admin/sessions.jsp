@@ -32,6 +32,11 @@
 	<div class="container">
 	<div class="row">
         <div class="col-md-12" style="float: right">
+        	<h2 class="center">All Sessions</h2>
+        </div>
+    </div>
+	<div class="row">
+        <div class="col-md-12" style="float: right">
         	<a class="session_add" href="/admin/session_create">Add Session</a>
         </div>
     </div>

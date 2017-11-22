@@ -44,8 +44,8 @@
 	<section id="session">
 	<div class="container">
 	 <div class="row"> 
-		<h2>edit session</h2>
-		<h2>Information of Session Id : ${id}</h2>
+		<h2>Edit session</h2>
+		<h3>Information of Session Id : ${id}</h3>
 	</div>
      <div class="row">   
 	<form:form modelAttribute="sessionForUpdated" method="POST" class="contact-form"
@@ -53,13 +53,13 @@
 		action="/admin/session_edit/${id}">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="capacity">capacity</label>
+				<label for="capacity">Capacity</label>
 				<form:input path="capacity" id="capacity" class="form-control"/>
 				<form:errors path="capacity" cssStyle="Color:RED"></form:errors>
 			</div>
 
 			<div class="form-group">
-				<label for="counselor">counselor</label>
+				<label for="counselor">Counselor</label>
 				<form:select path="counselor" id="counselor" class="form-control">
 					<form:option value="${sessionForUpdated.counselor.id}"
 						label="${sessionForUpdated.counselor.firstName}" />
