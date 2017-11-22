@@ -30,8 +30,8 @@
 	<section id="contact-page">
         <div class="container">
             <div class="center">        
-                <h2>Drop Your Message</h2>
-                <p class="lead">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h2>Transcendental Meditation</h2>
+                <p class="lead">Do less accomplish More .. !!	</p>
             </div> 
             <div class="row contact-wrap"> 
                 <div class="status alert alert-success" style="display: none"></div>
@@ -52,7 +52,15 @@
                         <div class="form-group">
                             <label>Company Name</label>
                             <input type="text" class="form-control">
-                        </div>                        
+                        </div> 
+                        <div class="form-group">
+			                <div class='input-group date' id='datetimepicker1'>
+			                    <input type='text' class="form-control" />
+			                    <span class="input-group-addon">
+			                        <span class="glyphicon glyphicon-calendar"></span>
+			                    </span>
+			                </div>
+			            </div>                       
                     </div>
                     <div class="col-sm-5">
                         <div class="form-group">
@@ -152,6 +160,15 @@
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/jquery.isotope.min.js"></script>   
     <script src="js/wow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>                       
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 	<script src="js/main.js"></script>
+	<script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker({
+                	format: 'YYYY/MM/DD'
+                });
+            });
+        </script>
   </body>
 </html>
