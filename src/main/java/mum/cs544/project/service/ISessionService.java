@@ -10,4 +10,7 @@ public interface ISessionService {
 	public List<Session> getAllSessions();
 	public Session getSessionById(Long sessionId);
 	public void editSession(Session session, Long id);
+	public void addSession(Session session);
+	public void deleteSession(Long id);
+	public List<Session> getAllFutureSessions();
 }

@@ -1,5 +1,6 @@
 package mum.cs544.project.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import mum.cs544.project.entity.Session;
 import mum.cs544.project.entity.Location;
@@ -64,13 +68,6 @@ public class SessionController {
 	@RequestMapping(value = "/session_edit/{id}", method = RequestMethod.GET)
 	public String ediPlayer(@ModelAttribute("sessionForUpdated") Session session, Model model, @PathVariable("id") Long id) {
 		Session sessionForUpdated = sessionService.getSessionById(id);
-		Map<Long, String> counselors = getListOfConselor();
-		Map<Long, String> locations = getListOfLocation();
-		Map<Date, String> times = getTimes();
-
-		model.addAttribute("locations", locations);
-		model.addAttribute("counselors", counselors);
-		model.addAttribute("times", times);
 		model.addAttribute("sessionForUpdated", sessionForUpdated);
 
 		return "session_edit";
@@ -79,24 +76,36 @@ public class SessionController {
 	@RequestMapping(value = { "/session_edit/{id}" }, method = RequestMethod.POST)
 	public String editSession(@Valid @ModelAttribute("sessionForUpdated") Session session, BindingResult bindingresult, Model model, @PathVariable("id") Long id) {
 		if (bindingresult.hasErrors()) {
-//			Session sessionForUpdated = sessionService.getSessionById(id);
-//			Map<Long, String> conselors = getListOfConselor();
-//			Map<Long, String> locations = getListOfLocation();
-//			Map<Date, String> times = getTimes();
-//
-//			model.addAttribute("locations", locations);
-//			model.addAttribute("conselors", conselors);
-//			model.addAttribute("times", times);
-//			model.addAttribute("sessionForUpdated", sessionForUpdated);
-
 			return "session_edit";
 		}
-
 		sessionService.editSession(session,id);
 		return "redirect:/sessions";
 	}
+	
+	@RequestMapping(value = "/session_create", method = RequestMethod.GET)
+	public String addPlayer(@ModelAttribute("addSession") Session session, Model model) {
+		return "session_create";
+	}
+	
+	@RequestMapping(value = "/session_create", method = RequestMethod.POST)
+	public String addPlayer(@Valid @ModelAttribute("addSession") Session session, BindingResult bindingresult, Model model, HttpServletRequest request,
+			RedirectAttributes redirectAttributes) {
+		if (bindingresult.hasErrors()) 
+			return "session_create";
 
+		sessionService.addSession(session);
+		redirectAttributes.addFlashAttribute("session", session);
+		//redirectAttributes.addFlashAttribute("message", "Added successfully.");
+		return "redirect:/sessions";
+	}
+	
+	@RequestMapping(value = "/session_delete/{id}", method = RequestMethod.GET)
+	public String delete(@PathVariable("id") Long id) {	
+		sessionService.deleteSession(id);
+		return "redirect:/sessions";
+	}
 
+	@ModelAttribute("locations")
 	private Map<Long, String> getListOfLocation() {
 		Map<Long, String> map = new HashMap<>();
 		List<Location> locations = locationService.getAllLocation();
@@ -106,21 +115,23 @@ public class SessionController {
 		return map;
 	}
 
+	@ModelAttribute("counselors")
 	public Map<Long, String> getListOfConselor() {
 		List<Person> conselors = personService.getAllConselor();
-		Map<Long, String> conselor_list = new HashMap<>();
+		Map<Long, String> map = new HashMap<>();
 
 		for (Person conselor : conselors) {
 			 List<Role> roles = conselor.getRoles();
 			 for (Role role : roles) {
-				 if (role.getName().equals("CONSELOR"))
-					 conselor_list.put(conselor.getId(), conselor.getFullName());
+				 if (role.getName().equals("counselor"))
+					 map.put(conselor.getId(), conselor.getFullName());
 			 }
 		}
 
-		return conselor_list;
+		return map;
 	}
 
+	@ModelAttribute("times")
 	private Map<Date, String> getTimes() {
 		Date time1 = new Calendar.Builder()
 		        .setDate(2016, 1, 1)

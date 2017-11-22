@@ -30,8 +30,8 @@
 				<td>${session.date}</td>
 				<td>${session.time}</td>
 				<td>${session.duration}</td>
-				<td>${session.location.building}</td>
-				<td>${session.counselor.firstName}</td>
+				<td>${session.location.building} ${session.location.room}</td>
+				<td>${session.counselor.firstName} ${session.counselor.lastName}</td>
 				<td>${session.capacity}</td>
 				<td>
 				<a href="session_edit/${session.id}">Edit</a>
@@ -41,7 +41,7 @@
 			</c:forEach>
 		</table>
 		<div style="float: right">
-					<a class="session_add" href="add">Add Session</a>
+					<a class="session_create" href="session_create">Add Session</a>
 		</div>
 	</form>
 </body>
