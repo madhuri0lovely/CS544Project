@@ -29,29 +29,11 @@
 
 	<%@ include file="header.jsp"%>
 	
-	<section id="contact-page">
+    <section id="contact-page">
         <div class="container">
-        	 <div class="row"> 
-        	 <div class="col-sm-6">
-				<form:form commandName="user" action="login" method="POST">
-				<c:if test="${param.error != null}">
-					<p>Invalid username and password.</p>
-				</c:if>
-		        
-		        	<div class="form-group">
-			        	<form:input path="username" placeholder="Username" autofocus="true" class="form-control"/>
-			        	<form:errors path="username"/>
-		        	</div>
-		        	<div class="form-group">
-			        	<form:password path="password" placeholder="Password" class="form-control"/>
-			        	<form:errors path="password"/>
-		        	</div>
-		        	<form:button  class="btn btn-primary btn-lg" >Log In</form:button>
-		        </div>	
-			</form:form>
-			</div>
+			<h2>Sorry, you do not have permission to view this page.</h2>
 		</div>
-    </section><!--/#bottom-->
+	</section>
 	
 	<div class="top-bar">
 		<div class="container">

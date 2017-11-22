@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.access.AccessDeniedHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -16,6 +17,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    @Bean
+    public AccessDeniedHandler accessDeniedHandler(){
+        return new CustomAccessDeniedHandler();
+    }
+    
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
@@ -28,15 +34,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
             	.antMatchers("/").permitAll()
 //                .antMatchers("/resources/**", "/registration").permitAll()
-                .antMatchers("/admin/**", "/admin**").hasRole("ADMIN")
-//                .antMatchers("/faculty/**").hasRole("FACULTY")
-//                .antMatchers("/staff/**").hasRole("STAFF")
-//                .antMatchers("/student/**").hasRole("STUDENT")
+                .antMatchers("/admin/**").hasRole("ADMIN")
+//                .antMatchers("/customer/**").hasRole("CUSTOMER")
+//                .antMatchers("/counselor/**").hasRole("COUNSELOR")
 //                .anyRequest().authenticated()
             .and()
             .formLogin()
                 .loginPage("/login").defaultSuccessUrl("/welcome", true)
                 .permitAll()
+            .and()
+            .exceptionHandling()
+            	.accessDeniedHandler(accessDeniedHandler())
+//            	.accessDeniedPage("/access_denied") //should use the accessDeniedHandler to redirect to access denied page
             .and()
             .logout()
                 .permitAll();
