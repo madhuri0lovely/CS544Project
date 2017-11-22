@@ -31,6 +31,11 @@
 	
 	<section id="contact-page">
         <div class="container">
+        <div class="row">
+	        <div class="col-md-12">
+	        <h2 class="">Login to Your Account</h2>
+	       	</div>
+	    </div>
         	 <div class="row"> 
         	 <div class="col-sm-6">
 				<form:form commandName="user" action="login" method="POST">
@@ -53,25 +58,9 @@
 		</div>
     </section><!--/#bottom-->
 	
-	<div class="top-bar">
-		<div class="container">
-			<div class="row">
-			    <div class="col-lg-12">
-				   <div class="social">
-						<ul class="social-share">
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
-							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-							<li><a href="#"><i class="fa fa-skype"></i></a></li>
-						</ul>
-				   </div>
-                </div>
-			</div>
-		</div><!--/.container-->
-	</div><!--/.top-bar-->
-	
-	<%@ include file="footer.jsp"%>
+	<div id="loginFooter">
+		<%@ include file="footer.jsp"%>
+	</div>
 	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.js"></script>

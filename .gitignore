@@ -1,8 +1,5 @@
-
-src/main/resources/application.properties
-/.settings
-/target
 .classpath
 .project
-.gitignore
-
+.settings/
+target/
+src/main/resources/application.properties
