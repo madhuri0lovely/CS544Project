@@ -33,7 +33,7 @@
 		
         
         <div class="col-md-12">
-        <h4>Bootstrap Snipp for Datatable</h4>
+        <h4>Total View</h4>
         <div class="table-responsive">
 
                 

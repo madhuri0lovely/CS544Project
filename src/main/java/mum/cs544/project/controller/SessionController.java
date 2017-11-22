@@ -79,15 +79,6 @@ public class SessionController {
 	@RequestMapping(value = { "/session_edit/{id}" }, method = RequestMethod.POST)
 	public String editSession(@Valid @ModelAttribute("sessionForUpdated") Session session, BindingResult bindingresult, Model model, @PathVariable("id") Long id) {
 		if (bindingresult.hasErrors()) {
-//			Session sessionForUpdated = sessionService.getSessionById(id);
-//			Map<Long, String> conselors = getListOfConselor();
-//			Map<Long, String> locations = getListOfLocation();
-//			Map<Date, String> times = getTimes();
-//
-//			model.addAttribute("locations", locations);
-//			model.addAttribute("conselors", conselors);
-//			model.addAttribute("times", times);
-//			model.addAttribute("sessionForUpdated", sessionForUpdated);
 
 			return "session_edit";
 		}
