@@ -30,8 +30,8 @@
 	<section id="services" class="service-item">
 	   <div class="container">
             <div class="center wow fadeInDown">
-                <h2>Our Service</h2>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
+                <h2>Manage Services</h2>
+                <p class="lead">The technique for inner peace and wellness</p>
             </div>
 
             <div class="row">
@@ -42,7 +42,7 @@
                             <img class="img-responsive" src="images/services/services1.png">
                         </div>
                         <div class="media-body">
-								<a href="/appointment">
+								<a href="appointment.jsp">
 									<h3 class="media-heading">Appointments</h3>
 									<p>Click here to view or change the appointments</p>
 								</a>
@@ -55,7 +55,7 @@
                             <img class="img-responsive" src="images/services/services1.png">
                         </div>
                         <div class="media-body">
-								<a href="/appointment">
+								<a href="appointment.jsp">
 									<h3 class="media-heading">TM Sessions</h3>
 									<p>Click here to view or change the sessions</p>
 								</a>

@@ -13,13 +13,33 @@
 				
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
+
                         <li class="active"><a href="/index">Home</a></li>
-                        <li><a href="/about-us">About Us</a></li>
-                        <li><a href="/manage">Manage</a></li> 
-                        <li><a href="/appointment">Appointment</a></li>
-                        <li><a href="/login">Login</a></li>                        
+                        <!-- <li><a href="/about-us">About Us</a></li> -->
+                        
+                        <sec:authorize access="hasRole('ROLE_CUSTOMER') and isAuthenticated()">
+                        	<li><a href="/manage">Manage</a></li>
+                        	<li><a href="/appointment">Appointment</a></li>
+                        </sec:authorize>
+						
+						<c:choose>
+						    <c:when test="${pageContext.request.userPrincipal.name==null}">
+						        <li><a href="/login">Login</a></li>
+						    </c:when>    
+						    <c:otherwise>
+						    	<li><a onclick="document.forms['logoutForm'].submit()">Logout</a></li>
+						        <form id="logoutForm" method="POST" action="${contextPath}/logout">
+						            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+						        </form>
+						    </c:otherwise>
+						</c:choose>
                     </ul>
+                    <br/>
+                    <c:if test="${pageContext.request.userPrincipal.name != null}">
+                    	<h4 style="color: white;" align="right">Welcome [<sec:authentication property="principal.username"/>]</h4>
+                    </c:if>
                 </div>
+
             </div><!--/.container-->
         </nav><!--/nav-->
 		

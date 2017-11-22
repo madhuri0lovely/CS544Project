@@ -6,8 +6,13 @@ import org.springframework.security.core.userdetails.User;
 public class SecurityUtil {
 	public static String getLoggedInUserName() {
 		String userName = "";
-		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		if(user != null) userName = user.getUsername();
+		
+		if(SecurityContextHolder.getContext().getAuthentication() != null) {
+			if(SecurityContextHolder.getContext().getAuthentication().getPrincipal() != null) {
+				User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+				if(user != null) userName = user.getUsername();
+			}
+		}
 		
 		return userName;
 	}

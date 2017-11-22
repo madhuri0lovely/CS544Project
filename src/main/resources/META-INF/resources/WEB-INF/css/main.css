@@ -120,7 +120,7 @@ body > section {
 
 .center {
   text-align: center;
-  padding-bottom: 55px;
+  padding-bottom: 30px;
 }
 
 .scaleIn {
@@ -1432,7 +1432,7 @@ ul.social_icons li  a i{
 }
 
 
-#contact-page{
+#contact-page,#sessions,#session_id,#session,#appointment{
   padding-top: 0;
   background:#fff;
   margin-top: 150px;
