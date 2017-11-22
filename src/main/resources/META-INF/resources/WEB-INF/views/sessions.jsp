@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
@@ -12,12 +13,12 @@
     <title>Appointment Management System</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">      
-	<link href="css/main.css" rel="stylesheet">
-	 <link href="css/responsive.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/font-awesome.min.css">
+	<link href="/css/animate.min.css" rel="stylesheet">
+    <link href="/css/prettyPhoto.css" rel="stylesheet">      
+	<link href="/css/main.css" rel="stylesheet">
+	 <link href="/css/responsive.css" rel="stylesheet">
 	 <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -149,11 +150,11 @@
 	<%@ include file="footer.jsp"%>
 	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/jquery.isotope.min.js"></script>   
-    <script src="js/wow.min.js"></script>
-	<script src="js/main.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.prettyPhoto.js"></script>
+    <script src="/js/jquery.isotope.min.js"></script>   
+    <script src="/js/wow.min.js"></script>
+	<script src="/js/main.js"></script>
   </body>
 </html>

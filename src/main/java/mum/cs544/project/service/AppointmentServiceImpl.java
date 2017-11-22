@@ -69,4 +69,9 @@ public class AppointmentServiceImpl implements IAppointmentService {
 		return appointmentRepository.findOne(id);
 	}
 
+	@Override
+	public List<Appointment> findBySession(Long id) {
+		return appointmentRepository.findBySession(sessionRepository.findOne(id));
+	}
+
 }
