@@ -42,7 +42,7 @@
 			<th>Duration</th>
 			<th>Location</th>
 			<th>Counselor</th>
-			<th>No of Seats</th>
+			<th>Available Seats</th>
 			<th>Action</th>
 		</thead>
 		<tbody>
@@ -54,7 +54,7 @@
 				<td>${session.duration}</td>
 				<td>${session.location.building}</td>
 				<td>${session.counselor.firstName}</td>
-				<td>${session.capacity}</td>
+				<td>${session.capacity-session.attendees.size()}</td>
 				<td><a href="save?sessionID=${session.id}">signup</a></td>
 			</tr>
 		</c:forEach>
