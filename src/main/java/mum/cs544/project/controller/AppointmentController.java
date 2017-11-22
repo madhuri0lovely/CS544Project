@@ -95,7 +95,7 @@ public class AppointmentController {
 	
 	@RequestMapping(value = "/appointmentManage", method = RequestMethod.GET)
 	public String ManageAppointments(Model model) {
-		model.addAttribute("sessions", sessionService.getAllSessions());
+		model.addAttribute("sessions", sessionService.getAllFutureSessions());
 		model.addAttribute("persons", personService.getAllPerson());
 		return "appointmentManage";
 	}
