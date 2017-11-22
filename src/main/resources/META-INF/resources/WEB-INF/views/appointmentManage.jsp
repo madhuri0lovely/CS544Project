@@ -12,6 +12,7 @@
 	<h1>Sessions</h1>
 	<a href="/appointmentDelete">Delete Appointment</a><br/>
 <a href="/login">Login</a>
+<span>${errorMsg}</span>
 		<table>
 			<tr>
 				<th>Session ID</th>
@@ -20,7 +21,7 @@
 				<th>Duration</th>
 				<th>Location</th>
 				<th>Counselor</th>
-				<th>No of Seats</th>
+				<th>Available Seats</th>
 				<th>Customers</th>
 				<th>Action</th>
 			</tr>
@@ -33,7 +34,7 @@
 				<td>${session.duration}</td>
 				<td>${session.location.building}</td>
 				<td>${session.counselor.firstName}</td>
-				<td>${session.capacity}</td>
+				<td>${session.capacity-session.attendees.size()}</td>
 				
 				<form action="apptRegisterCustomer/${session.id}/" method="post">
 				<td>
