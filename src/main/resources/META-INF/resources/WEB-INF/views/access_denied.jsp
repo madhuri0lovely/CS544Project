@@ -33,6 +33,18 @@
         <div class="container">
 			<h2>Sorry, you do not have permission to view this page.</h2>
 		</div>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
 	</section>
 	
 	<div class="top-bar">

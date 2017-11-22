@@ -26,13 +26,23 @@
     
   </head>
 <body>
-	<%@ include file="header.jsp"%>
+	<%@ include file="../header.jsp"%>
 	<section id="sessions">
 	<form action="">
 	<div class="container">
 	<div class="row">
+        <div class="col-md-12" style="float: right">
+        	<h2 class="center">All Sessions</h2>
+        </div>
+    </div>
+	<div class="row">
+        <div class="col-md-12" style="float: right">
+        	<a class="session_add" href="/admin/session_create">Add Session</a>
+        </div>
+    </div>
+	<div class="row">
         <div class="col-md-12">
-        <h2 class="center">All Sessions</h2>
+        <!-- <h2 class="center">All Sessions</h2> -->
         <div class="table-responsive">
 		<table id="mytable" class="table table-bordred table-striped">
 			 <thead>
@@ -57,7 +67,7 @@
 					<td>${session.capacity}</td>
 					<td>
 					<a href="session_edit/${session.id}"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="session_delete/${session.id}"><span class="glyphicon glyphicon-trash"></span></a>
+						<a onclick="return confirm('Are you sure you want to delete this item?');" href="session_delete/${session.id}"><span class="glyphicon glyphicon-trash"></span></a>
 					</td>
 				</tr>
 				</c:forEach>
@@ -66,11 +76,7 @@
 		</div>
 		</div>
 	</div>
-	<div class="row">
-        <div class="col-md-12" style="float: right">
-        	<a class="session_add" href="add">Add Session</a>
-        </div>
-    </div>
+	
 	</div>
 	</form>
 	</section>
@@ -147,7 +153,7 @@
 		</div><!--/.container-->
 	</div><!--/.top-bar-->
 	
-	<%@ include file="footer.jsp"%>
+	<%@ include file="../footer.jsp"%>
 	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="/js/jquery.js"></script>

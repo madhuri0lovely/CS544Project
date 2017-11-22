@@ -1807,6 +1807,12 @@ ul.sidebar-gallery {
   padding-bottom: 30px;
   color: #fff;
   background: #000;
+   
+}
+#loginFooter{
+	position:fixed;
+    bottom:0;
+    width:100%;
 }
 
 #footer a {
@@ -1828,6 +1834,13 @@ ul.sidebar-gallery {
   margin-left: 15px;
 }
 
+//new
+form .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    vertical-align: middle;
+}
+form td .btn-primary{
+	margin-top: 0;
+}
 
 
 

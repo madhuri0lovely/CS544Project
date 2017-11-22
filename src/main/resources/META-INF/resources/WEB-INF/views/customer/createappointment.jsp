@@ -26,37 +26,36 @@
     
   </head>
 <body>
-	<%@ include file="header.jsp"%>
+	<%@ include file="../header.jsp"%>
 	<section id="appointment">
 	<form action="">
 	<div class="container">
 	<div class="row">
         <div class="col-md-12">
-        <h2 class="center">All Appointments</h2>
+        <h2 class="center">Book an Appointment</h2>
         <div class="table-responsive">
 	<table class="table table-bordred table-striped">
-		<thead>
-			<th>Appointment ID</th>
+		 <thead>
+			<th>Session ID</th>
 			<th>Date</th>
 			<th>Start Time</th>
 			<th>Duration</th>
 			<th>Location</th>
 			<th>Counselor</th>
-			<th>No of Seats</th>
+			<th>Available Seats</th>
 			<th>Action</th>
 		</thead>
 		<tbody>
-		<c:forEach var="appt" items="${appointments}">
+		<c:forEach var="session" items="${sessions}">
 			<tr>
-				<td>${appt.id}</td>
-				<td>${appt.session.date}</td>
-				<td>${appt.session.time}</td>
-				<td>${appt.session.duration}</td>
-				<td>${appt.session.location.building}</td>
-				<td>${appt.session.counselor.firstName}</td>
-				<td>${appt.session.capacity}</td>
-				<td><a href="delete?apptID=${appt.id}">delete</a></td>
-				</form>
+				<td>${session.id}</td>
+				<td>${session.date}</td>
+				<td>${session.time}</td>
+				<td>${session.duration}</td>
+				<td>${session.location.building}</td>
+				<td>${session.counselor.firstName}</td>
+				<td>${session.capacity-session.attendees.size()}</td>
+				<td><a href="/customer/bookappointment?sessionID=${session.id}">signup</a></td>
 			</tr>
 		</c:forEach>
 		</tbody>
@@ -137,7 +136,7 @@
 		</div><!--/.container-->
 	</div><!--/.top-bar-->
 	
-	<%@ include file="footer.jsp"%>
+	<%@ include file="../footer.jsp"%>
 	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="/js/jquery.js"></script>
