@@ -19,13 +19,13 @@
                         
                         <sec:authorize access="hasRole('ROLE_CUSTOMER') and isAuthenticated()">
                         	<li><a href="/customer/createappointment">Book Appointment</a></li>
-                        	<li><a href="/customer/listappointment">Appointments</a></li>
+                        	<li><a href="/customer/listappointment">My Appointments</a></li>
                         </sec:authorize>
 						
 						<sec:authorize access="hasRole('ROLE_ADMIN') and isAuthenticated()">
 							<li><a href="/admin/sessions">Sessions</a></li>
                         	<li><a href="/admin/appointmentManage">Book Appointment</a></li>
-                        	<li><a href="/admin/appointmentDelete">Appointments</a></li>
+                        	<li><a href="/admin/appointmentDelete">My Appointments</a></li>
                         </sec:authorize>
                         
 						<c:choose>
