@@ -1,7 +1,5 @@
 package mum.cs544.project.controller;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -20,13 +18,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import mum.cs544.project.entity.Session;
 import mum.cs544.project.entity.Location;
 import mum.cs544.project.entity.Person;
 import mum.cs544.project.entity.Role;
+import mum.cs544.project.entity.Session;
 import mum.cs544.project.service.ILocationService;
 import mum.cs544.project.service.IPersonService;
 import mum.cs544.project.service.ISessionService;
@@ -43,7 +40,7 @@ public class SessionController {
 	@Autowired
 	ILocationService locationService;
 
-	@RequestMapping(value = "/sessions", method = RequestMethod.GET)
+	@RequestMapping(value={"/admin/sessions"}, method = RequestMethod.GET)
 	public String getAllSessions(Model model) {
 		model.addAttribute("sessions", sessionService.getAllSessions());
 		return "sessions";
