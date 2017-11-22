@@ -27,100 +27,46 @@
   <body class="homepage">   
 	<%@ include file="header.jsp"%>
 	
-	<section id="services" class="service-item">
-	   <div class="container">
-            <div class="center wow fadeInDown">
-                <h2>Manage Services</h2>
-                <p class="lead">The technique for inner peace and wellness</p>
-            </div>
+	<section id="contact-page">
+        <div class="container">
+            <div class="center">        
+                <h2>Appointment Admin Management</h2>
+                <p class="lead">Enter Customer Id</p>
+            </div> 
+            <div class="row contact-wrap"> 
+                <div class="status alert alert-success" style="display: none"></div>
+                <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="login">
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="form-group">
 
-            <div class="row">
-
-                <div class="col-sm-6 col-md-4">
-                    <div class="media services-wrap wow fadeInDown">
-                        <div class="pull-left">
-                            <img class="img-responsive" src="images/services/services1.png">
+                        <div class="form-group">
+                            <label>Customer Id</label>
+                            <input type="number" class="form-control">
                         </div>
-                        <div class="media-body">
-								<a href="appointment.jsp">
-									<h3 class="media-heading">Appointments</h3>
-									<p>Click here to view or change the appointments</p>
-								</a>
+                        <div class="form-group">
+                            <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Submit</button>
                         </div>
                     </div>
-                </div>
-				 <div class="col-sm-6 col-md-4">
-                    <div class="media services-wrap wow fadeInDown">
-                        <div class="pull-left">
-                            <img class="img-responsive" src="images/services/services1.png">
-                        </div>
-                        <div class="media-body">
-								<a href="appointment.jsp">
-									<h3 class="media-heading">TM Sessions</h3>
-									<p>Click here to view or change the sessions</p>
-								</a>
-                        </div>
-                    </div>
-                </div>
-				 <div class="col-sm-6 col-md-4">
-                    <div class="media services-wrap wow fadeInDown">
-                        <div class="pull-left">
-                            <img class="img-responsive" src="images/services/services1.png">
-                        </div>
-                        <div class="media-body">
-								<a href="appointment.jsp">
-									<h3 class="media-heading">SEO Marketing</h3>
-									<p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-								</a>
-                        </div>
-                    </div>
-                </div>
-				 <div class="col-sm-6 col-md-4">
-                    <div class="media services-wrap wow fadeInDown">
-                        <div class="pull-left">
-                            <img class="img-responsive" src="images/services/services1.png">
-                        </div>
-                        <div class="media-body">
-								<a href="appointment.jsp">
-									<h3 class="media-heading">SEO Marketing</h3>
-									<p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-								</a>
-                        </div>
-                    </div>
-                </div>
-				 <div class="col-sm-6 col-md-4">
-                    <div class="media services-wrap wow fadeInDown">
-                        <div class="pull-left">
-                            <img class="img-responsive" src="images/services/services1.png">
-                        </div>
-                        <div class="media-body">
-								<a href="appointment.html">
-									<h3 class="media-heading">SEO Marketing</h3>
-									<p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-								</a>
-                        </div>
-                    </div>
-                </div>
-
-                                                             
+                </form> 
             </div><!--/.row-->
         </div><!--/.container-->
-    </section><!--/#services-->
-
-<section id="bottom">
-	<div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-		<div class="row">
-			<div class="col-md-3 col-sm-6">
-				<div class="widget">
-					<h3>Company</h3>
-					<ul>
-						<li><a href="#">About us</a></li>
-						<li><a href="#">We are hiring</a></li>
-						<li><a href="#">Meet the team</a></li>
-						<li><a href="#">Copyright</a></li>                           
-					</ul>
-				</div>    
-			</div><!--/.col-md-3-->
+    </section><!--/#contact-page-->
+<br/><br/>
+<a href="/appointmentDelete">Delete Appointment</a>
+    <section id="bottom">
+        <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">We are hiring</a></li>
+                            <li><a href="#">Meet the team</a></li>
+                            <li><a href="#">Copyright</a></li>                           
+                        </ul>
+                    </div>    
+                </div><!--/.col-md-3-->
 
                 <div class="col-md-3 col-sm-6">
                     <div class="widget">

@@ -70,6 +70,11 @@ public class AppointmentServiceImpl implements IAppointmentService {
 	}
 
 	@Override
+	public List<Appointment> getAllAppointments() {
+		return (List<Appointment>) appointmentRepository.findAll();
+	}
+	
+	@Override
 	public List<Appointment> findBySession(Long id) {
 		return appointmentRepository.findBySession(sessionRepository.findOne(id));
 	}
