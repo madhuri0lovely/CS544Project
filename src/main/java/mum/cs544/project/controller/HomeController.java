@@ -2,10 +2,8 @@ package mum.cs544.project.controller;
 
 import java.util.Collection;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -13,14 +11,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import mum.cs544.project.model.User;
-import mum.cs544.project.service.JMSService;
 
 @Controller
 public class HomeController {
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
-	public String welcome(@ModelAttribute("user") User user) {		
+	public String welcome() {		
 		return "home";
+	}
+	
+	@RequestMapping(value="/access_denied", method=RequestMethod.GET)
+	public String accessDenied() {		
+		return "access_denied";
 	}
 	
 	@RequestMapping(value = {"/welcome"}, method = RequestMethod.GET)
@@ -31,11 +33,11 @@ public class HomeController {
 		for (GrantedAuthority grantedAuthority : authorities) {
 			switch(grantedAuthority.getAuthority()) {
 			case "ROLE_ADMIN":
-				return "redirect:/admin/adminPage";
+				return "redirect:/admin/sessions";
 			case "ROLE_COUNSELOR":
-				return "redirect:/faculty/facultyPage";
+				return "redirect:/counselor/facultyPage";
 			case "ROLE_CUSTOMER":
-				return "redirect:/staff/findStudent";
+				return "redirect:/customer/findStudent";
 			}
 		}  
         return "home";
@@ -43,7 +45,6 @@ public class HomeController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(@ModelAttribute("user") User user, Model model, String error, String logout) {
-		System.out.println("login get..............error["+error+"], logout["+logout+"]");
 		if (error != null)
             model.addAttribute("errorMsg", "Your username and password is invalid.");
 

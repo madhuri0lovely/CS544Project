@@ -15,8 +15,11 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="/index">Home</a></li>
                         <!-- <li><a href="/about-us">About Us</a></li> -->
-                        <li><a href="/manage">Manage</a></li> 
-                        <li><a href="/appointment">Appointment</a></li>
+                        
+                        <sec:authorize access="hasRole('ROLE_CUSTOMER') and isAuthenticated()">
+                        	<li><a href="/manage">Manage</a></li>
+                        	<li><a href="/appointment">Appointment</a></li>
+                        </sec:authorize>
 						
 						<c:choose>
 						    <c:when test="${pageContext.request.userPrincipal.name==null}">
@@ -32,7 +35,7 @@
                     </ul>
                     <br/>
                     <c:if test="${pageContext.request.userPrincipal.name != null}">
-                    	<h4 style="color: white;" align="right">Welcome [${pageContext.request.userPrincipal.name}]</h4>
+                    	<h4 style="color: white;" align="right">Welcome [<sec:authentication property="principal.username"/>]</h4>
                     </c:if>
                 </div>
 
