@@ -60,7 +60,7 @@
 				<td>${appt.session.counselor.firstName}</td>
 				<td>${appt.session.capacity}</td>
 				<td>${appt.person.getFullName()}</td>
-				<td><a href="delete?apptID=${appt.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
+				<td><a onclick="return confirm('Are you sure you want to cancel this appointment?');" href="delete?apptID=${appt.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
 				</form>
 			</tr>
 		</c:forEach>
