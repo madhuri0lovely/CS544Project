@@ -5,7 +5,6 @@ import java.util.Date;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import mum.cs544.project.entity.Appointment;
 import mum.cs544.project.entity.Person;
@@ -28,13 +26,13 @@ import mum.cs544.project.util.SecurityUtil;
 
 @Controller
 public class AppointmentController {
-
+	
 	@Autowired
 	ISessionService sessionService;
-
+	
 	@Autowired
 	IAppointmentService appointmentService;
-
+	
 	@Autowired
 	IPersonService personService;
 
@@ -43,8 +41,8 @@ public class AppointmentController {
 		List<Session> allAvailableSessions = sessionService.getAllFutureSessions();
 		long personid = personService.findByUsername(SecurityUtil.getLoggedInUserName()).getId();
 		allAvailableSessions = allAvailableSessions.stream()
-				.filter(session -> (session.getCapacity() > session.getAttendees().size())).filter(session -> (session
-						.getAttendees().stream().filter(appt -> appt.getPerson().getId() == personid).count() == 0))
+				.filter(session -> (session.getCapacity() > session.getAttendees().size()))
+				.filter(session -> (session.getAttendees().stream().filter(appt -> appt.getPerson().getId() == personid).count() == 0))
 				.collect(Collectors.toList());
 		model.addAttribute("sessions", allAvailableSessions);
 		return "/customer/createappointment";
@@ -106,22 +104,14 @@ public class AppointmentController {
 	}
 	
 	@RequestMapping(value = "/admin/apptRegisterCustomer/{sessionid}", params="person", method = RequestMethod.POST)
-	public String AppointmentAddCustomer(@RequestParam String person,@PathVariable long sessionid, Model model, RedirectAttributes redirectAttributes) {
+	public String AppointmentAddCustomer(@RequestParam String person,@PathVariable long sessionid, Model model) {
 		System.out.println("......AppointmentAddCustomer...");
 		Session session = sessionService.getSessionById(sessionid);
 		Person person1 = personService.findByUsername(person);
 		Person creator = personService.findByUsername(SecurityUtil.getLoggedInUserName());
 		Appointment appt = new Appointment(session, person1, creator, new Date());
-		List<Appointment> appts = person1.getAppointments();
-		List<Long> sessions = appts.stream().map(apt -> apt.getSession().getId()).collect(Collectors.toList());
-		if (sessions.contains(sessionid)) {
-			redirectAttributes.addFlashAttribute("errorMsg", "The customer already has appointment on this session");
-			//model.addAttribute("errorMsg", "The customer already has appointment on this session");
-		} else {
-			appointmentService.createAppointment(appt);
-			model.addAttribute("errorMsg", "Test");
-		}
-
+		appointmentService.createAppointment(appt);
+		
 		model.addAttribute("sessions", sessionService.getAllSessions());
 		return "redirect:/admin/appointmentManage";
 	}
