@@ -45,7 +45,7 @@
 			<th>Duration</th>
 			<th>Location</th>
 			<th>Counselor</th>
-			<th>No of Seats</th>
+			<th>Available Seats</th>
 			<th>Customer Name</th>
 			<th>Action</th>
 		</thead>
@@ -58,9 +58,9 @@
 				<td>${appt.session.duration}</td>
 				<td>${appt.session.location.building}</td>
 				<td>${appt.session.counselor.firstName}</td>
-				<td>${appt.session.capacity}</td>
+				<td>${session.capacity-session.attendees.size()}</td>
 				<td>${appt.person.getFullName()}</td>
-				<td><a href="delete?apptID=${appt.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
+				<td><a onclick="return confirm('Are you sure you want to cancel this appointment?');" href="delete?apptID=${appt.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
 				</form>
 			</tr>
 		</c:forEach>

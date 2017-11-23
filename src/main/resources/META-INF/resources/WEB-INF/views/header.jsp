@@ -25,7 +25,7 @@
 						<sec:authorize access="hasRole('ROLE_ADMIN') and isAuthenticated()">
 							<li><a href="/admin/sessions">Sessions</a></li>
                         	<li><a href="/admin/appointmentManage">Book Appointment</a></li>
-                        	<li><a href="/admin/appointmentDelete">My Appointments</a></li>
+                        	<li><a href="/admin/appointmentDelete">All Appointments</a></li>
                         </sec:authorize>
                         
 						<c:choose>

@@ -46,24 +46,9 @@ public class SessionController {
 		return "/admin/sessions";
 	}
 
-//	@RequestMapping(value = "/admin/createSession", method = RequestMethod.GET)
-//	public String getAllSessions(@Valid Session session) {
-//		return "createSession";
-//	}
-
-//	@RequestMapping(value = "/admin/sessions", method = RequestMethod.POST)
-//	public String createSession(@Valid Session session, BindingResult result) {
-//		String view = "redirect:/admin/sessions";
-//		if (!result.hasErrors())
-//			sessionService.createSession(session);
-//		else
-//			view = "createSession";
-//
-//		return view;
-//	}
 
 	@RequestMapping(value = "/admin/session_edit/{id}", method = RequestMethod.GET)
-	public String ediPlayer(@ModelAttribute("sessionForUpdated") Session session, Model model, @PathVariable("id") Long id) {
+	public String editSession(@ModelAttribute("sessionForUpdated") Session session, Model model, @PathVariable("id") Long id) {
 		Session sessionForUpdated = sessionService.getSessionById(id);
 		model.addAttribute("sessionForUpdated", sessionForUpdated);
 
@@ -72,28 +57,30 @@ public class SessionController {
 
 	
 	@RequestMapping(value = { "admin/session_edit/{id}" }, method = RequestMethod.POST)
-	public String editSession(@Valid @ModelAttribute("sessionForUpdated") Session session, BindingResult bindingresult, Model model, @PathVariable("id") Long id) {
+	public String editSession(@Valid @ModelAttribute("sessionForUpdated") Session session, BindingResult bindingresult, Model model, @PathVariable("id") Long id,RedirectAttributes redirecattribute) {
 		if (bindingresult.hasErrors()) {
 			model.addAttribute("id", id);
 			return "/admin/session_edit";
 		}
+		redirecattribute.addFlashAttribute("message", "Update Successful");
 		sessionService.editSession(session,id);
 		return "redirect:/admin/sessions";
 	}
 	
 	@RequestMapping(value = "/admin/session_create", method = RequestMethod.GET)
-	public String addPlayer(@ModelAttribute("addSession") Session session, Model model) {
+	public String addSession(@ModelAttribute("addSession") Session session, Model model) {
 		return "/admin/session_create";
 	}
 	
 	@RequestMapping(value = "/admin/session_create", method = RequestMethod.POST)
-	public String addPlayer(@Valid @ModelAttribute("addSession") Session session, BindingResult bindingresult, Model model, HttpServletRequest request,
+	public String addSession(@Valid @ModelAttribute("addSession") Session session, BindingResult bindingresult, Model model, HttpServletRequest request,
 			RedirectAttributes redirectAttributes) {
 		if (bindingresult.hasErrors()) 
 			return "/admin/session_create";
 
 		sessionService.addSession(session);
 		redirectAttributes.addFlashAttribute("session", session);
+		redirectAttributes.addFlashAttribute("message", "Create Successful");
 		//redirectAttributes.addFlashAttribute("message", "Added successfully.");
 		return "redirect:/admin/sessions";
 	}
