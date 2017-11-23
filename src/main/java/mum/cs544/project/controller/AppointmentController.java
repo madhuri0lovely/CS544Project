@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import mum.cs544.project.entity.Appointment;
 import mum.cs544.project.entity.Person;
@@ -98,20 +99,30 @@ public class AppointmentController {
 	
 	@RequestMapping(value = "/admin/appointmentManage", method = RequestMethod.GET)
 	public String ManageAppointments(Model model) {
-		model.addAttribute("sessions", sessionService.getAllFutureSessions());
+		List<Session> allAvailableSessions = sessionService.getAllFutureSessions();
+		allAvailableSessions = allAvailableSessions.stream()
+				.filter(session -> (session.getCapacity() > session.getAttendees().size()))
+				.collect(Collectors.toList());
+		model.addAttribute("sessions", allAvailableSessions);
 		model.addAttribute("persons", personService.getAllPerson());
 		return "/admin/appointmentManage";
 	}
 	
 	@RequestMapping(value = "/admin/apptRegisterCustomer/{sessionid}", params="person", method = RequestMethod.POST)
-	public String AppointmentAddCustomer(@RequestParam String person,@PathVariable long sessionid, Model model) {
-		System.out.println("......AppointmentAddCustomer...");
+	public String AppointmentAddCustomer(@RequestParam String person, @PathVariable long sessionid, Model model, RedirectAttributes redirectAttributes) {
 		Session session = sessionService.getSessionById(sessionid);
 		Person person1 = personService.findByUsername(person);
 		Person creator = personService.findByUsername(SecurityUtil.getLoggedInUserName());
 		Appointment appt = new Appointment(session, person1, creator, new Date());
-		appointmentService.createAppointment(appt);
-		
+		List<Appointment> appts = person1.getAppointments();
+		List<Long> sessions = appts.stream().map(apt -> apt.getSession().getId()).collect(Collectors.toList());
+		if (sessions.contains(sessionid)) {
+			redirectAttributes.addFlashAttribute("errorMsg", "The customer already has appointment on this session");
+			//model.addAttribute("errorMsg", "The customer already has appointment on this session");
+		} else {
+			appointmentService.createAppointment(appt);
+		}
+
 		model.addAttribute("sessions", sessionService.getAllSessions());
 		return "redirect:/admin/appointmentManage";
 	}
