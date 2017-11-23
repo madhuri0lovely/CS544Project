@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Appointment Management System</title>
 
+	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <!-- Bootstrap -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="/css/font-awesome.min.css">
@@ -45,7 +46,7 @@
 				<th>Duration</th>
 				<th>Location</th>
 				<th>Counselor</th>
-				<th>No of Seats</th>
+				<th>Available Seats</th>
 				<th>Customers</th>
 				<th>Action</th>
 			</thead>
@@ -59,7 +60,7 @@
 				<td>${session.duration}</td>
 				<td>${session.location.building}</td>
 				<td>${session.counselor.firstName}</td>
-				<td>${session.capacity}</td>
+				<td>${session.capacity-session.attendees.size()}</td>
 				
 				<form action="/admin/apptRegisterCustomer/${session.id}" method="post">
 					<td>
@@ -78,6 +79,27 @@
 			</c:forEach>
 			</tbody>
 		</table>
+		
+		<div class="modal fade" id="myModal" role="dialog">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Notification</h4>
+						</div>
+						<div class="modal-body">
+							<p>The customer already has appointment on this session.</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
 	</div>
 	</div>
 	</div>
@@ -165,5 +187,15 @@
     <script src="/js/jquery.isotope.min.js"></script>   
     <script src="/js/wow.min.js"></script>
 	<script src="/js/main.js"></script>
+	
+	<script>
+		$(document).ready(function() {
+			var value = "<c:out value="${errorMsg}"/>"
+			// 		alert(paramOne);
+			if (value == 'The customer already has appointment on this session') {
+				$('#myModal').modal('toggle');
+			}
+		});
+	</script>
   </body>
 </html>
